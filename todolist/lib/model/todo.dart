@@ -11,13 +11,10 @@ class Todo {
   String description;
   bool isDone;
 
-  Todo({
-    required this.createdTime,
-    required this.title,
-    this.description = '',
-    this.isDone = false
-  }) : id = const Uuid().v4()
-
-  
+  Todo(
+      {required this.createdTime,
+      required this.title,
+      this.description = '',
+      this.isDone = false})
+      : id = const Uuid().v4();
 }
-
