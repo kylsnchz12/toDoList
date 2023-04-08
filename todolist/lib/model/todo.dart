@@ -1,5 +1,3 @@
-import 'package:uuid/uuid.dart';
-
 class TodoField {
   static const createdTime = 'createdTime';
 }
@@ -15,6 +13,6 @@ class Todo {
       {required this.createdTime,
       required this.title,
       this.description = '',
-      this.isDone = false})
-      : id = const Uuid().v4();
+      this.id = '',
+      this.isDone = false});
 }
