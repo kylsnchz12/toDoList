@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todolist/main.dart';
 
 import '../widget/add_todo_dialog.dart';
+import '../widget/completed_list_widget.dart';
 import '../widget/todo_list_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final tabs = [TodoListWidget(), Container()];
+    final tabs = [const TodoListWidget(), const CompletedListWidget()];
 
     return Scaffold(
       appBar: AppBar(
