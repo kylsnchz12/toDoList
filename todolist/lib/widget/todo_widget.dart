@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:todolist/provider/todos.dart';
 
 import '../model/todo.dart';
+import '../page/edit_todo_page.dart';
 
 class TodoWidget extends StatelessWidget {
   final Todo todo;
@@ -19,6 +20,9 @@ class TodoWidget extends StatelessWidget {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
+  void editTodo(BuildContext context, Todo todo) => Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => EditTodoPage(todo: todo)));
+
   @override
   Widget build(BuildContext context) {
     return Scrollable(
@@ -32,7 +36,7 @@ class TodoWidget extends StatelessWidget {
               dismissible: DismissiblePane(onDismissed: () {}),
               children: [
                 SlidableAction(
-                  onPressed: (context) {},
+                  onPressed: (h) => editTodo(context, todo),
                   backgroundColor: Colors.green,
                   foregroundColor: Colors.white,
                   icon: Icons.edit,
@@ -44,7 +48,7 @@ class TodoWidget extends StatelessWidget {
               dismissible: DismissiblePane(onDismissed: () {}),
               children: [
                 SlidableAction(
-                  onPressed: (conte) => deleteTodo(context, todo),
+                  onPressed: (context) => deleteTodo(context, todo),
                   backgroundColor: Colors.red,
                   foregroundColor: Colors.white,
                   icon: Icons.delete,
